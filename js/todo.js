@@ -12,15 +12,21 @@ function saveTodo() {
 
 function deleteTodo(e) {
     const parentLi = e.target.parentElement;
+    const parentLiId = parentLi.id;
+    console.log(parentLiId);
+
     parentLi.remove();
+    todos = todos.filter((item) => item.id !== Number(parentLiId));
+    saveTodo();
 }
 
-function paintTodo(inputValue) {
+function paintTodo(newTodo) {
     const li = document.createElement("li");
     const span = document.createElement("span");
     const button = document.createElement("button");
+    li.id = newTodo.id;
 
-    span.innerText = inputValue;
+    span.innerText = newTodo.text;
     li.appendChild(span);
 
     button.innerText = "X";
@@ -32,11 +38,19 @@ function paintTodo(inputValue) {
 
 function todoSubmitHandler(e) {
     e.preventDefault();
-    let inputValue = todoInput.value;
+    let newTodo = todoInput.value;
     todoInput.value = "";
-    todos.push(inputValue);
 
-    paintTodo(inputValue);
+    const randomId = Date.now();
+
+    let todoObj = {
+        id: randomId,
+        text: newTodo,
+    };
+
+    todos.push(todoObj);
+
+    paintTodo(todoObj);
     saveTodo();
 }
 
@@ -46,5 +60,6 @@ const savedTodos = localStorage.getItem(TODOS_KEY);
 
 if (localStorage.getItem(TODOS_KEY) !== null) {
     let parsedTodos = JSON.parse(savedTodos);
-    parsedTodos.forEach((item) => paintTodo(item));
+    todos = parsedTodos;
+    parsedTodos.forEach((item) => paintTodo(item)); //parsedTodos.forEach(paintTodo)로 간략하게 정리 가능
 }
