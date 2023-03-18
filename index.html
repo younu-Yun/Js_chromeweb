@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <form id="loginForm" class="hidden">
-      <input
-        type="text"
-        placeholder="What's your name?"
-        required
-        maxlength="15"
-      />
-      <input class="login_btn" type="submit" value="login" />
-    </form>
-    <div id="greeting" class="hidden"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <form id="loginForm" class="hidden">
+            <input
+                type="text"
+                placeholder="What's your name?"
+                required
+                maxlength="15"
+            />
+            <input class="login_btn" type="submit" value="login" />
+        </form>
+        <div id="greeting" class="hidden"></div>
 
-    <form action="" id="todoForm">
-      <input type="text" placeholder="write your todo and press enter." />
-    </form>
-    <ul id="todoList"></ul>
+        <form action="" id="todoForm">
+            <input type="text" placeholder="write your todo and press enter." />
+        </form>
+        <ul id="todoList"></ul>
 
-    <div id="clock">00:00:00</div>
-    <div id="quotes">
-      <span></span>
-      <span></span>
-    </div>
+        <div id="clock">00:00:00</div>
+        <div id="quotes">
+            <span></span>
+            <span></span>
+        </div>
 
-    <script defer src="./js/greeting.js"></script>
-    <script defer src="./js/clock.js"></script>
-    <script defer src="./js/quotes.js"></script>
-    <script defer src="./js/todo.js"></script>
-  </body>
+        <div id="weather">
+            <span></span>
+            <span></span>
+        </div>
+
+        <script defer src="./js/greeting.js"></script>
+        <script defer src="./js/clock.js"></script>
+        <script defer src="./js/quotes.js"></script>
+        <script defer src="./js/todo.js"></script>
+        <script defer src="./js/weather.js"></script>
+    </body>
 </html>
